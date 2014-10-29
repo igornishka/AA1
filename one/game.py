@@ -288,6 +288,10 @@ class Game:
 			new_prey_location = self.get_new_location(self.prey, prey_move)
 			#print "Prey almost stepped on predator! Performed action: %s" %(action_name)
 			##If it is, make it wait (hide) instead
+			## !! If prey would step on predator, prey does not wait! 
+			## Policy is update instead. A move is picked according to the new probabilities.
+			## Hence, first check restricted moves, update policy, 
+			## then pick an allowed action according to new policy.
 			#new_prey_location = self.prey.get_location()
 			"Prey almost stepped on predator! It went to hide in the bushes instead."
 		#Move prey to new location
